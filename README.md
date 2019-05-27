@@ -1,7 +1,7 @@
 # AudioConverterMenu
 A dolphin menu to convert files to flac or to mp3 high quality.
 
-## Usage
+## Usage on Dolphin (KDE)
 
 Use right-clic on a multimedia file, and enter in the **Audio** submenu:
 
