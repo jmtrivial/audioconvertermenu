@@ -11,14 +11,14 @@ X-KDE-Submenu[fr]=Audio
 
 [Desktop Action audioConverterToFlac]
 TryExec=ffmpeg
-Exec=file=%F; output="${file%.*}.flac"; i=1; while [ -e "$output" ]; do output="$file ($i).flac"; i=$((i+1)); done; ffmpeg -i "$file" -f flac "$output"
+Exec=for file in %F; do output="${file%.*}.flac"; i=1; while [ -e "$output" ]; do output="$file ($i).flac"; i=$((i+1)); done; ffmpeg -i "$file" -f flac "$output"; done
 Name=Convert multimedia file to flac
 Name[fr]=Convertir un fichier audio en flac
 Icon=audio
 
 [Desktop Action audioConverterToMp3]
 TryExec=ffmpeg
-Exec=file=%F; output="${file%.*}.mp3"; i=1; while [ -e "$output" ]; do output="$file ($i).flac"; i=$((i+1)); done; ffmpeg -i "$file" -ar 44100 -f mp3 -b:a 320k  "$output"
+Exec=for file in %F; do output="${file%.*}.mp3"; i=1; while [ -e "$output" ]; do output="$file ($i).mp3"; i=$((i+1)); done; ffmpeg -i "$file" -ar 44100 -f mp3 -b:a 320k  "$output"; done
 Name=Convert multimedia file to mp3 44.1kHz 320k
 Name[fr]=Convertir un fichier audio en mp3 44.1kHz 320k
 Icon=audio
