@@ -13,6 +13,8 @@ Use `kf5-config --path services` to find your kservice directory. A commonly use
 
 Add `audioConverterMenu.desktop` file in your kservice directory. It will add a new "Audio" entry in the right-clic menu.
 
+Note: On plasma6, the directory is now `$HOME/.local/share/kio/servicemenus/`.
+
 ## Dependancies
 
 * [ffmpeg](https://ffmpeg.org/) to convert files
