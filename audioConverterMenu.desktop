@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Service
-Actions=audioConverterToFlac;audioConverterToMp3
+Actions=audioConverterToFlac;audioConverterToMp3;audioConverterToWav;audioConverterToWav24
 Encoding=UTF-8
 ServiceTypes=KonqPopupMenu/Plugin
 MimeType=audio/*;video/*
@@ -21,4 +21,18 @@ TryExec=ffmpeg
 Exec=for file in %F; do output="${file%.*}.mp3"; i=1; while [ -e "$output" ]; do output="${file%.*} ($i).mp3"; i=$((i+1)); done; ffmpeg -i "$file" -ar 44100 -f mp3 -b:a 320k  "$output"; done
 Name=Convert multimedia file to mp3 44.1kHz 320k
 Name[fr]=Convertir un fichier audio en mp3 44.1kHz 320k
+Icon=audio
+
+[Desktop Action audioConverterToWav]
+TryExec=ffmpeg
+Exec=for file in %F; do output="${file%.*}.wav"; i=1; while [ -e "$output" ]; do output="${file%.*} ($i).wav"; i=$((i+1)); done; ffmpeg -i "$file" -ar 48000 -acodec pcm_s16le "$output"; done
+Name=Convert multimedia file to wav 48kHz
+Name[fr]=Convertir un fichier audio en wav 48kHz
+Icon=audio
+
+[Desktop Action audioConverterToWav24]
+TryExec=ffmpeg
+Exec=for file in %F; do output="${file%.*}.wav"; i=1; while [ -e "$output" ]; do output="${file%.*} ($i).wav"; i=$((i+1)); done; ffmpeg -i "$file" -ar 48000 -acodec pcm_s24le "$output"; done
+Name=Convert multimedia file to wav 48kHz 24bit
+Name[fr]=Convertir un fichier audio en wav 48kHz 24 bits
 Icon=audio
